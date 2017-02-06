@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Infobeans_Faq::faq_content" title="Faq Manager" module="Infobeans_Faq" sortOrder="50" parent="Magento_Backend::content" resource="Infobeans_Faq::faq_content" />
+        <add id="Infobeans_Faq::faq" title="Faq" module="Infobeans_Faq" sortOrder="0" parent="Infobeans_Faq::faq_content" action="faq/faq" resource="Infobeans_Faq::faq"/>
+        <add id="Infobeans_Faq::faq_category" title="Category" module="Infobeans_Faq" sortOrder="0" parent="Infobeans_Faq::faq_content" action="faq/category" resource="Infobeans_Faq::faq_category"/>
+    </menu>
+</config>

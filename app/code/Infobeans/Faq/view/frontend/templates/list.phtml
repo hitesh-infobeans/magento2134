@@ -1,0 +1,20 @@
+<div id="faq-list">
+<?php /** @var $block \Infobeans\Faq\Block\FaqList */ ?>
+<div id="accordion" class="faq-list">
+<?php /** @var $faq \Infobeans\Faq\Model\Faq */ ?>    
+<?php foreach ($block->getFaqs() as $faq): ?>
+    
+        <h3 class="faq-item-title">
+            <?php echo $faq->getTitle() ?>
+        </h3>
+
+        <div class="panel faq-item-content">
+            <?php echo $faq->getContent(); ?>
+        </div> 
+    
+<?php endforeach; ?>
+</div> 
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="faq-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?> 
+</div>
