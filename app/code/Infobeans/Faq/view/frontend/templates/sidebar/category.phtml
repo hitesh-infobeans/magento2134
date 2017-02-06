@@ -15,18 +15,17 @@
     
 	<ul>
 	<?php
-		$i = 0;
-		$first = true;
+		$i = 0;		 
 		foreach($items as $item) { 
                     if($i==0)
                     {
-                        $currentCategory=$item->getId();
+                        $currentCategory=$item->getId(); 
                     }
                     
                     ?>
 			 
             <li id="cat<?php echo $item->getId();?>" <?php echo ($i == 0)?'class="active"':''?> >
-                        <a  href="javascript:;" onclick="fetchFaq('<?php echo $item->getId();?>',1)">
+                        <a  href="javascript:;" <?php echo ($i == 0)?'class="disableClick"':''?> onclick="fetchFaq('<?php echo $item->getId();?>',1)">
 			    <?php echo $block->escapeHtml($item->getCategoryName()) ?>
 			</a>
 	        <?php

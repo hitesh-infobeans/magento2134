@@ -4,97 +4,60 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 
+ @border:1px solid;
 
-div.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-}
+.faq-list{
+    font-weight: normal;      
+    
+    .ui-state-default{
+        background: #f6f6f6 none repeat scroll 0 0;
+        border:@border #c5c5c5;
+        color: #454545;        
+    }
+    
+    .ui-state-active  {
+        background: #514943 none repeat scroll 0 0;
+        border:@border #8a837f;
+        color: #ffffff;
+        
+    }
+    
+    h3 {
+        font-size: 15px;
+        line-height: normal;
+        margin-bottom:0px;
+        margin-top: 0px;
+        padding: 5px; 
 
-div.panel.show {
-    display: block;
+    }
+
+    
 } 
+ 
 
-.faq-list .ui-accordion .ui-accordion-header {
-    cursor: pointer;
-    display: block;
-    font-size: 100%;
-    margin: 2px 0 0;
-    padding: 0.5em 0.5em 0.5em 0.7em;
-    position: relative;
-}
-.faq-list .ui-icon  {
+.faq-category{
+    li { 
+        border: @border #ccc;
+        height: 24px;
+        list-style: outside none none;
+        padding: 6px; 
+        
+    }
     
-    background-image: url("@{baseDir}images/ui-icons_444444_256x240.png");
-}
-
-
-.faq-list .ui-state-active .ui-icon {
-    background-image: url("@{baseDir}images/ui-icons_ffffff_256x240.png");
-}
-
-.faq-list .ui-icon {
-    height: 16px;
-    width: 16px;
-}
-.faq-list .ui-icon {
-    background-repeat: no-repeat;
-    display: inline-block;
-    margin-top: -0.25em;
-    overflow: hidden;
-    position: relative;
-    text-indent: -99999px;
-    vertical-align: middle;
-}
-
-
-.faq-list .ui-state-default {
-    background: #f6f6f6 none repeat scroll 0 0;
-    border: 1px solid #c5c5c5;
-    color: #454545;
-    font-weight: normal;
-}
-
-.faq-list .ui-state-active  {
-    background: #514943 none repeat scroll 0 0;
-    border: 1px solid #8a837f;
-    color: #ffffff;
-    font-weight: normal;
-}
-
-.faq-list h3 {
-    font-size: 15px;
-    line-height: normal;
-    margin-bottom:0px;
-    margin-top: 0px;
-    padding: 5px;
-    cursor:pointer;
+    li:hover, li.active{
+        background: #eee none repeat scroll 0 0;
+    }
     
+    li.active a{
+        color:#000;
+    }
 }
-
-.faq-category li {
-    
-    border: 1px solid #ccc;
-    height: 24px;
-    list-style: outside none none;
-    padding: 6px;
-}
-
-.faq-category li:hover{
-    background: #eee none repeat scroll 0 0;
-}
-
-.faq-category li.active{
-    background: #eee none repeat scroll 0 0;
-}
-
-.faq-category li.active a{
-    color:#000;
-}
-
-.pager .current{
-   background:#ccc; 
-}
+ 
+.pager{
+    .current{
+        background:#ccc; 
+    }  
+} 
 
 .faq-item-content{
     padding:15px !important
