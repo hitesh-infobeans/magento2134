@@ -2,7 +2,7 @@
 namespace Infobeans\Faq\Model\ResourceModel;
 
 /**
- * Faq mysql resource
+ * FAQ mysql resource
  */
  
 class Faq extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb

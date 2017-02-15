@@ -36,44 +36,7 @@
 </div>
 <input type="hidden" id="current-category" value="<?php echo $currentCategory;?>" />
 <?php } ?>
-<script>
- function fetchFaq(categoryId,page){
-        require([
-            'jquery',
-            'jquery/ui'
-        ], function($){ 
-           
-            $.ajax({
-                    url: "<?php echo $this->getBaseUrl(); ?>faq/ajax/index",
-                    method: 'POST',
-                    showLoader: true,
-                    data: { 
-                        category_id: categoryId,
-                        page:page,                        
-                    },
-                    success: function (response) {
-                    $('.faq-category li').removeClass('active');   
-                    $('.faq-category li a').removeClass('disableClick');   
-                    $("#accordion").accordion("destroy"); 
-                    $('#faq-list').html(response);
-                    $('.pager .item').removeClass('current');                    
-                    $('.pager .page'+page).addClass('current');
-                    $('#current-category').val(categoryId);    
-                    $("#accordion").accordion({ 
-                        heightStyle: "content"
-                     });
-                     
-                     $('#cat'+categoryId).addClass('active');
-                     $('#cat'+categoryId+' a').addClass('disableClick');
-                    }
-                });
-            
-        });
-
-    }
-    
-    
-    
-    
-    
+<script type="text/javascript">
+    window.accordianEnable=parseInt("<?php echo $this->isEnableAccordian(); ?>");
+    window.faqAjaxUrl="<?php echo $this->getBaseUrl(); ?>faq/ajax/index";
 </script>    

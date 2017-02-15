@@ -33,7 +33,7 @@ class Edit extends \Magento\Backend\App\Action
     }
 
     /**
-     * Is the user allowed to add/edit faq.
+     * Is the user allowed to add/edit FAQ.
      *
      * @return bool
      */
@@ -53,13 +53,13 @@ class Edit extends \Magento\Backend\App\Action
          
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Infobeans_Faq::faq')
-            ->addBreadcrumb(__('Faq'), __('Faq'))
-            ->addBreadcrumb(__('Manage Faqs'), __('Manage Faqs'));
+            ->addBreadcrumb(__('FAQ'), __('FAQ'))
+            ->addBreadcrumb(__('Manage FAQs'), __('Manage FAQs'));
         return $resultPage;
     }
 
     /**
-     * Edit Faq
+     * Edit FAQ
      *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
      */
@@ -89,12 +89,12 @@ class Edit extends \Magento\Backend\App\Action
         
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Faq') : __('New Faq'),
-            $id ? __('Edit Faq') : __('New Faq')
+            $id ? __('Edit FAQ') : __('New FAQ'),
+            $id ? __('Edit FAQ') : __('New FAQ')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Faqs'));
+        $resultPage->getConfig()->getTitle()->prepend(__('FAQs'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('New Faq'));
+            ->prepend($model->getId() ? $model->getTitle() : __('New FAQ'));
 
         return $resultPage;
     }

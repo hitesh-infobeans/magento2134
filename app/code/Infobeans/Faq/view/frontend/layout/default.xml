@@ -4,7 +4,7 @@
         <referenceBlock name="footer_links">
             <block class="Magento\Framework\View\Element\Html\Link\Current" name="2custom-link">
                 <arguments>
-                    <argument name="label" xsi:type="string">Faq</argument>
+                    <argument name="label" xsi:type="string">FAQ</argument>
                     <argument name="path" xsi:type="string">faq</argument>
                 </arguments>
             </block>

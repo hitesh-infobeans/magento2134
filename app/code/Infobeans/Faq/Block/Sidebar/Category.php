@@ -4,7 +4,7 @@
 namespace Infobeans\Faq\Block\Sidebar; 
 
 /**
- * Faq sidebar categories block
+ * FAQ sidebar categories block
  */
 class Category extends \Magento\Framework\View\Element\Template
 {
@@ -12,9 +12,12 @@ class Category extends \Magento\Framework\View\Element\Template
     
     protected $_resource;
     
+    protected $scopeConfig;
+    
      public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Infobeans\Faq\Model\ResourceModel\Category\CollectionFactory $categoryCollectionFactory,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,     
         \Magento\Framework\App\ResourceConnection $resource,     
         array $data = []
     ) {
@@ -22,6 +25,7 @@ class Category extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
         $this->_resource = $resource;
         $this->_categoryCollectionFactory = $categoryCollectionFactory;
+        $this->scopeConfig = $scopeConfig;
         
     }
     
@@ -52,6 +56,18 @@ class Category extends \Magento\Framework\View\Element\Template
         }
 
         return $this->getData($k);
+    }
+    
+    /**
+     * Return boolean
+     * @return \Magento\Framework\App\Config\ScopeConfigInterface
+     */    
+    public function isEnableAccordian()
+    {
+        return $this->scopeConfig->getValue(
+            'faq_section/general/enable_accordian',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
     }
     
     

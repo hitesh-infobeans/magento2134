@@ -21,7 +21,7 @@ class Index extends \Magento\Framework\App\Action\Action
     }
 
     /**
-     * Faq Index, shows a list of faqs using ajax.
+     * FAQ Index, shows a list of FAQs using ajax.
      *
      * @return \Magento\Framework\View\Result\PageFactory
      */

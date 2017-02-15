@@ -21,7 +21,7 @@ class Index extends \Magento\Framework\App\Action\Action
     }
 
     /**
-     * Faq Index, shows a list of faqs.
+     * FAQ Index, shows a list of FAQs.
      *
      * @return \Magento\Framework\View\Result\PageFactory
      */

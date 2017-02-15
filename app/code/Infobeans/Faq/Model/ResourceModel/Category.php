@@ -2,7 +2,7 @@
 namespace Infobeans\Faq\Model\ResourceModel;
 
 /**
- * Faq mysql resource
+ * Category mysql resource
  */
  
 class Category extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb

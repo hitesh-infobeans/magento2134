@@ -2,7 +2,7 @@
 namespace Infobeans\Faq\Block\Adminhtml\Category\Edit;
 
 /**
- * Adminhtml faq edit form
+ * Adminhtml FAQ edit form
  */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {

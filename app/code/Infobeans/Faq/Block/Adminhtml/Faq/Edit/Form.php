@@ -2,7 +2,7 @@
 namespace Infobeans\Faq\Block\Adminhtml\Faq\Edit;
 
 /**
- * Adminhtml faq edit form
+ * Adminhtml FAQ edit form
  */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
@@ -50,7 +50,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     {
         parent::_construct();
         $this->setId('faq_form');
-        $this->setTitle(__('Faq Information'));
+        $this->setTitle(__('FAQ Information'));
     }
 
     /**

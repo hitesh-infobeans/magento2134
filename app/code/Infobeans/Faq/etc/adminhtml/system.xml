@@ -5,24 +5,28 @@
             <label>Infobeans</label>
         </tab>
         <section id="faq_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Faq Configuration</label>
+            <label>FAQ Configuration</label>
             <tab>infobeans_faq</tab>
             <resource>Infobeans_Faq::config</resource>
            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>General</label>                
-                <field id="page_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                 <field id="enable_accordian" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Accordian</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="page_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Page Title</label>
                 </field>
-                <field id="meta_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="meta_title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Meta Title</label>
                 </field>
-                <field id="meta_keyword" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="meta_keyword" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Meta Keyword</label>
                 </field>
-                <field id="meta_description" translate="label" type="textarea" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="meta_description" translate="label" type="textarea" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Meta Description</label>
-                </field>
-                <field id="record_per_page" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                </field> 
+                <field id="record_per_page" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Show Records per page</label>
                       <validate>validate-digits</validate>   
                     <comment><![CDATA[Default value is 10]]></comment>

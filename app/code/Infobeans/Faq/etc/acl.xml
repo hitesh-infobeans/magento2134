@@ -4,15 +4,15 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
-                    <resource id="Infobeans_Faq::faq_content" title="Faq" sortOrder="10" >
-                        <resource id="Infobeans_Faq::faq" title="Faqs" sortOrder="40" />                            
+                    <resource id="Infobeans_Faq::faq_content" title="FAQ" sortOrder="10" >
+                        <resource id="Infobeans_Faq::faq" title="FAQs" sortOrder="40" />                            
                          <resource id="Infobeans_Faq::category" title="Category" sortOrder="40" /> 
                     </resource> 
                 </resource> 
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Infobeans_Faq::config" title="Faq Config" sortOrder="50" />
+                            <resource id="Infobeans_Faq::config" title="FAQ Config" sortOrder="50" />
                         </resource>
                     </resource>
                 </resource>

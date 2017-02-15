@@ -105,7 +105,7 @@ class Faqlist extends \Magento\Framework\View\Element\Template implements
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
-    
+     
     
     /**
      * Set Page Title , Meta Title , Meta Keyword,

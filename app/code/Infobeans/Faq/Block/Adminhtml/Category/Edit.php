@@ -25,7 +25,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     }
     
     /**
-     * Initialize faq edit block
+     * Initialize FAQ Category edit block
      *
      * @return void
      */

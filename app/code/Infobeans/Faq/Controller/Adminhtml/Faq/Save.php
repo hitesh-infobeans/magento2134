@@ -43,7 +43,7 @@ class Save extends \Magento\Backend\App\Action
 
             try {
                 $model->save();
-                $this->messageManager->addSuccess(__('You saved this Faq.'));
+                $this->messageManager->addSuccess(__('You saved this FAQ.'));
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['faq_id' => $model->getId(), '_current' => true]);
@@ -54,7 +54,7 @@ class Save extends \Magento\Backend\App\Action
             } catch (\RuntimeException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Somethingwent wrong while saving the faq.'));
+                $this->messageManager->addException($e, __('Somethingwent wrong while saving the FAQ.'));
             }
 
             $this->_getSession()->setFormData($data);

@@ -34,15 +34,15 @@ class Index extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Infobeans_Faq::faq');
-        $resultPage->addBreadcrumb(__('Faq'), __('Faq'));
-        $resultPage->addBreadcrumb(__('Manage Faqs'), __('Manage Faqs'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Faqs'));
+        $resultPage->addBreadcrumb(__('FAQ'), __('FAQ'));
+        $resultPage->addBreadcrumb(__('Manage FAQs'), __('Manage FAQs'));
+        $resultPage->getConfig()->getTitle()->prepend(__('FAQs'));
 
         return $resultPage;
     }
 
     /**
-     * Is the user allowed to view the faq grid.
+     * Is the user allowed to view the FAQ grid.
      *
      * @return bool
      */

@@ -21,7 +21,7 @@ class NewAction extends \Magento\Backend\App\Action
     }
 
     /**
-     * Is the user allowed to add new faq.
+     * Is the user allowed to add new FAQ.
      *
      * @return bool
      */

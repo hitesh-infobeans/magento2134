@@ -35,7 +35,7 @@ class InstallSchema implements InstallSchemaInterface
                         ['identity' => true, 'nullable' => false, 'primary' => true],
                         'Category ID'
                     )
-                    ->addColumn('category_name', Table::TYPE_TEXT, 255, ['nullable' => false], 'Faq Category Name')
+                    ->addColumn('category_name', Table::TYPE_TEXT, 255, ['nullable' => false], 'FAQ Category Name')
                     ->addColumn('sort_order', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Sort Order')
                     ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is FAQ Active?')
                     ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
@@ -57,8 +57,8 @@ class InstallSchema implements InstallSchemaInterface
                 ['identity' => true, 'nullable' => false, 'primary' => true],
                 'Faq ID'
             )
-            ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'Faq Question')
-            ->addColumn('content', Table::TYPE_TEXT, '2M', [], 'Faq Answer')
+            ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'FAQ Question')
+            ->addColumn('content', Table::TYPE_TEXT, '2M', [], 'FAQ Answer')
             ->addColumn('category_id', Table::TYPE_SMALLINT, null, ['nullable' => false], 'Category Id')
             ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is FAQ Active?')
             ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')

@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head> 
-       <script src="Infobeans_Faq::js/faq.js"/>
+       <script src="Infobeans_Faq::js/faq.js"   />
     </head>
     <body>
         <referenceBlock name="breadcrumbs">
@@ -15,10 +15,10 @@
                 </argument>
             </action>
             <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Faq</argument>
+                <argument name="crumbName" xsi:type="string">FAQ</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Faq</item>
-                    <item name="label" xsi:type="string">Faq</item>
+                    <item name="title" xsi:type="string">FAQ</item>
+                    <item name="label" xsi:type="string">FAQ</item>
                 </argument>
             </action>
         </referenceBlock> 

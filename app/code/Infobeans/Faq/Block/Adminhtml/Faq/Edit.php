@@ -25,7 +25,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     }
     
     /**
-     * Initialize faq edit block
+     * Initialize FAQ edit block
      *
      * @return void
      */
@@ -38,7 +38,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         parent::_construct();
 
         if ($this->_isAllowedAction('Infobeans_Faq::faq')) {
-            $this->buttonList->update('save', 'label', __('Save Faq'));
+            $this->buttonList->update('save', 'label', __('Save FAQ'));
             $this->buttonList->add(
                 'saveandcontinue',
                 [
@@ -71,9 +71,9 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     public function getHeaderText()
     {
         if ($this->_coreRegistry->registry('faq_faq')->getId()) {
-            return __("Edit Faq '%1'", $this->escapeHtml($this->_coreRegistry->registry('faq_faq')->getTitle()));
+            return __("Edit FAQ '%1'", $this->escapeHtml($this->_coreRegistry->registry('faq_faq')->getTitle()));
         } else {
-            return __('New Faq');
+            return __('New FAQ');
         }
     }
 
