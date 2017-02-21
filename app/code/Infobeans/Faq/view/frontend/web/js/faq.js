@@ -8,61 +8,54 @@
 require([
             'jquery',
             'jquery/ui'
-        ], function ($) { 
-         
-          var accordianEnable = window.accordianEnable; 
-          if(accordianEnable)
-          {
+        ], function ($) {
+            var accordianEnable = window.accordianEnable;
+            if (accordianEnable) {
                 $(document).ready(function () {
-                    $("#accordion").accordion({ 
+                    $("#accordion").accordion({
                             heightStyle: "content"
                     });
-
                });
-        }
-       
-     
+            }
 });
 
 
-function fetchFaq(categoryId,page){
-    require([
+function fetchFaq(categoryId,page)
+{
+    require(
+        [
             'jquery',
             'jquery/ui'
-    ], function($){ 
-            var accordianEnable = window.accordianEnable; 
-            
+        ],
+        function ($) {
+            var accordianEnable = window.accordianEnable;
             $.ajax({
                     url: window.faqAjaxUrl,
                     method: 'POST',
                     showLoader: true,
-                    data: { 
+                    data: {
                         category_id: categoryId,
-                        page:page,                        
+                        page:page,
                     },
                     success: function (response) {
-                    $('.faq-category li').removeClass('active');   
-                    $('.faq-category li a').removeClass('disableClick');   
-                    if(accordianEnable)
-                    {
-                      $("#accordion").accordion("destroy"); 
+                    $('.faq-category li').removeClass('active');
+                    $('.faq-category li a').removeClass('disableClick');
+                    if (accordianEnable) {
+                      $("#accordion").accordion("destroy");
                     }
                     $('#faq-list').html(response);
-                    $('.pager .item').removeClass('current');                    
+                    $('.pager .item').removeClass('current');
                     $('.pager .page'+page).addClass('current');
-                    $('#current-category').val(categoryId);    
-                    
-                    if(accordianEnable)
-                    {
-                        $("#accordion").accordion({ 
+                    $('#current-category').val(categoryId);
+                    if (accordianEnable) {
+                        $("#accordion").accordion({
                             heightStyle: "content"
                         });
-                    } 
+                    }
                     $('#cat'+categoryId).addClass('active');
                     $('#cat'+categoryId+' a').addClass('disableClick');
                 }
             });
-            
-        });
-
-    } 
+        }
+    );
+}
