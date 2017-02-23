@@ -88,7 +88,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         return $this->_authorization->isAllowed($resourceId);
     }
 
-     /**
+    /**
      * Getter of url for "Save and Continue" button
      * tab_id will be replaced by desired by JS later
      *

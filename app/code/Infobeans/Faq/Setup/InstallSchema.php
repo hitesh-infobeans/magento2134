@@ -39,11 +39,10 @@ class InstallSchema implements InstallSchemaInterface
                     ->addColumn('sort_order', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Sort Order')
                     ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is FAQ Active?')
                     ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
-                    ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')            
+                    ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')
                     ->setComment('Infobeans FAQ Category');
 
                 $installer->getConnection()->createTable($table);
-        
         
         /**
          * Create table 'infobeans_faq'
@@ -64,7 +63,15 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
             ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')
             ->setComment('Infobeans FAQ')
-            ->addForeignKey(
+            ->addIndex(
+                $setup->getIdxName(
+                    $installer->getTable('infobeans_faq'),
+                    ['title', 'content'],
+                    AdapterInterface::INDEX_TYPE_FULLTEXT
+                ),
+                ['title', 'content'],
+                ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
+            )->addForeignKey(
                 $installer->getFkName(
                     'infobeans_faq',
                     'category_id',
@@ -72,7 +79,7 @@ class InstallSchema implements InstallSchemaInterface
                     'category_id'
                 ),
                 'category_id',
-                $installer->getTable('infobeans_faq_category'), 
+                $installer->getTable('infobeans_faq_category'),
                 'category_id',
                 \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
             );

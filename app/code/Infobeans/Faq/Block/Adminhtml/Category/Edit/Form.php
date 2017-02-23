@@ -53,7 +53,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     {
       
         $model = $this->_coreRegistry->registry('faq_category');
- 
         
         $form = $this->_formFactory->create(
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
@@ -75,7 +74,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             'text',
             ['name' => 'category_name', 'label' => __('Category Name'), 'title' => __('Category Name'), 'required' => true]
         );
-
         
         $fieldset->addField(
             'is_active',
@@ -88,6 +86,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'options' => ['1' => __('Enabled'), '0' => __('Disabled')]
             ]
         );
+        
         if (!$model->getId()) {
             $model->setData('is_active', '1');
         }

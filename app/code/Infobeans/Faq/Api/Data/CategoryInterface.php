@@ -3,7 +3,6 @@ namespace Infobeans\Faq\Api\Data;
 
 interface CategoryInterface
 {
-    
     const CATEGORY_ID       = 'category_id';
     const CATEGORY_NAME         = 'category_name';
     const SORT_ORDER       = 'sort_order';
@@ -17,7 +16,6 @@ interface CategoryInterface
      * @return int|null
      */
     public function getId();
-
      
     /**
      * Get Category Name
@@ -60,7 +58,6 @@ interface CategoryInterface
      * @param int $id
      */
     public function setId($id);
-
      
     /**
      * Set Category Name

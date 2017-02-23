@@ -7,7 +7,6 @@ namespace Infobeans\Faq\Model\ResourceModel;
  
 class Faq extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
-
     /**
      * @var \Magento\Framework\Stdlib\DateTime\DateTime
      */
@@ -41,7 +40,7 @@ class Faq extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $this->_init('infobeans_faq', 'faq_id');
     }
 
-     /**
+    /**
      * Process faq data before saving
      *
      * @param \Magento\Framework\Model\AbstractModel $object
@@ -58,31 +57,5 @@ class Faq extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $object->setUpdateTime($this->_date->gmtDate());
 
         return parent::_beforeSave($object);
-    }
-
-     /**
-     * Retrieve select object for load object data
-     *
-     * @param string $field
-     * @param mixed $value
-     * @param \Infobeans\Faq\Model\Faq $object
-     * @return \Zend_Db_Select
-     */
-    
-    
-    protected function _getLoadSelect($field, $value, $object)
-    {
-        $select = parent::_getLoadSelect($field, $value, $object);
-
-        if ($object->getStoreId()) {
-            $select->where(
-                'is_active = ?',
-                1
-            )->limit(
-                1
-            );
-        }
-
-        return $select;
     }
 }

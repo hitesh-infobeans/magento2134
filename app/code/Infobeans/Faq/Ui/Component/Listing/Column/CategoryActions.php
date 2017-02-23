@@ -11,7 +11,6 @@ class CategoryActions extends Column
     /** Url path */
     const CATEGORY_URL_PATH_EDIT = 'faq/category/edit';
     const CATEGORY_URL_PATH_DELETE = 'faq/category/delete';
-
      
     protected $urlBuilder;
 
@@ -20,7 +19,7 @@ class CategoryActions extends Column
      */
     protected $editUrl;
 
-     /**
+    /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder

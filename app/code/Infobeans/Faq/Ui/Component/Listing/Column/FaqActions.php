@@ -11,8 +11,7 @@ class FaqActions extends Column
     /** Url path */
     const FAQ_URL_PATH_EDIT = 'faq/faq/edit';
     const FAQ_URL_PATH_DELETE = 'faq/faq/delete';
-
-     
+    
     protected $urlBuilder;
 
     /**
@@ -20,7 +19,7 @@ class FaqActions extends Column
      */
     protected $editUrl;
 
-     /**
+    /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder

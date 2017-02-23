@@ -16,7 +16,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @var \Magento\Cms\Model\Wysiwyg\Config
      */
-    protected $_wysiwygConfig; 
+    protected $_wysiwygConfig;
     
     /**
      * @param \Magento\Backend\Block\Template\Context $context
@@ -31,8 +31,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Store\Model\System\Store $systemStore,
-        \Infobeans\Faq\Model\ResourceModel\Category\Collection $categoryCollection,  
-        \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,    
+        \Infobeans\Faq\Model\ResourceModel\Category\Collection $categoryCollection,
+        \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
         array $data = []
     ) {
         $this->_systemStore = $systemStore;
@@ -60,9 +60,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
-        
         $model = $this->_coreRegistry->registry('faq_faq');
-
         
         $form = $this->_formFactory->create(
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
@@ -84,7 +82,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             'text',
             ['name' => 'title', 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
         );
-
         
         $fieldset->addField(
             'is_active',
@@ -105,14 +102,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $collection = $this->_categoryCollection
             ->setOrder('sort_order');
            
-
-        foreach($collection as $item) {
-            $categories[] = array(
+        foreach ($collection as $item) {
+            $categories[] = [
                 'label' => $item->getCategoryName() . ($item->getIsActive() ? '' : ' ('.__('Disabled').')' ),
-                'value' => $item->getId() ,
-            );
+                'value' => $item->getId(),
+            ];
         }
-        
         
         $field = $fieldset->addField(
             'category_id',
@@ -121,12 +116,11 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'name' => 'category_id',
                 'label' => __('Category'),
                 'title' => __('Category'),
-                'values' => $categories, 
+                'values' => $categories,
                 'style' => 'width:100%',
                 'required' => true,
             ]
         );
-        
 
         $fieldset->addField(
             'content',
@@ -138,14 +132,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'style' => 'height:36em',
                 'required' => true,
                 'config' => $this->_wysiwygConfig->getConfig()
-                
             ]
         );
 
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);
-
         return parent::_prepareForm();
     }
 }

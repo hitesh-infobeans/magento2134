@@ -38,7 +38,6 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         parent::_construct();
 
         if ($this->_isAllowedAction('Infobeans_Faq::category')) {
-            
             $this->buttonList->update('save', 'label', __('Save Category'));
             $this->buttonList->add(
                 'saveandcontinue',
@@ -62,8 +61,6 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         } else {
             $this->buttonList->remove('delete');
         }
-        
-        
     }
 
     /**
@@ -92,7 +89,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         return $this->_authorization->isAllowed($resourceId);
     }
 
-     /**
+    /**
      * Getter of url for "Save and Continue" button
      * tab_id will be replaced by desired by JS later
      *

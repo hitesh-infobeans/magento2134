@@ -3,7 +3,7 @@ namespace Infobeans\Faq\Model\ResourceModel\Category;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-     /**
+    /**
      * @var string
      */
     
@@ -18,5 +18,19 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init('Infobeans\Faq\Model\Category', 'Infobeans\Faq\Model\ResourceModel\Category');
+    }
+    
+    protected function _renderFiltersBefore()
+    {
+        $faqTable = $this->getTable('infobeans_faq');
+        
+        $this->getSelect()->join(
+            ['f' => $faqTable],
+            'main_table.category_id = f.category_id and f.is_active=1',
+            []
+        )->group(
+            'main_table.category_id'
+        );
+        parent::_renderFiltersBefore();
     }
 }

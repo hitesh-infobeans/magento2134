@@ -3,7 +3,6 @@ namespace Infobeans\Faq\Api\Data;
 
 interface FaqInterface
 {
-    
     const FAQ_ID       = 'faq_id';
     const TITLE         = 'title';
     const CONTENT       = 'content';
@@ -17,7 +16,6 @@ interface FaqInterface
      * @return int|null
      */
     public function getId();
-
      
     /**
      * Get title
@@ -60,7 +58,6 @@ interface FaqInterface
      * @param int $id
      */
     public function setId($id);
-
      
     /**
      * Set title
