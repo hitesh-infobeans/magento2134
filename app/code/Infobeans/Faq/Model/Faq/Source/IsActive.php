@@ -8,7 +8,7 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
      */
     protected $faq;
 
-     /**
+    /**
      * Constructor
      *
      * @param \Infobeans\Faq\Model\Faq $faq
