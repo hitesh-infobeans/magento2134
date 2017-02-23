@@ -6,7 +6,7 @@ use Magento\Framework\App\Action\Context;
 class Index extends \Magento\Framework\App\Action\Action
 {
     /** @var  \Magento\Framework\View\Result\Page */
-    protected $resultPageFactory;
+    private $resultPageFactory;
     
     /**
      * @param \Magento\Framework\App\Action\Context $context

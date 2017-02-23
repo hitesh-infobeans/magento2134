@@ -27,16 +27,13 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     
     public function execute()
-    { 
-        
+    {
         $resultPage = $this->resultPageFactory->create();
 
         $block = $resultPage->getLayout()
                 ->createBlock('Infobeans\Faq\Block\Faqlist')
                 ->setTemplate('Infobeans_Faq::ajaxlist.phtml')
                 ->toHtml();
-        $this->getResponse()->setBody($block);  
-        
-        
+        $this->getResponse()->setBody($block);
     }
 }

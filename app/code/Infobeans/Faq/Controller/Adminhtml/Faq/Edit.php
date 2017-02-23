@@ -42,7 +42,6 @@ class Edit extends \Magento\Backend\App\Action
         return $this->_authorization->isAllowed('Infobeans_Faq::faq');
     }
     
-    
     /**
      * Init actions
      *
@@ -85,7 +84,6 @@ class Edit extends \Magento\Backend\App\Action
         }
 
         $this->_coreRegistry->register('faq_faq', $model);
-
         
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(

@@ -6,7 +6,6 @@ use Magento\TestFramework\ErrorLog\Logger;
 
 class Save extends \Magento\Backend\App\Action
 {
-
     /**
      * {@inheritdoc}
      */
@@ -22,7 +21,6 @@ class Save extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-       
         $data = $this->getRequest()->getPostValue();
         
         $resultRedirect = $this->resultRedirectFactory->create();
@@ -35,7 +33,6 @@ class Save extends \Magento\Backend\App\Action
             }
  
             $model->setData($data);
-         
  
             $this->_eventManager->dispatch(
                 'faq_category_prepare_save',
@@ -44,7 +41,6 @@ class Save extends \Magento\Backend\App\Action
 
             try {
                 $model->save();
-               
                 $this->messageManager->addSuccess(__('You saved this Category.'));
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {

@@ -6,7 +6,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    
     /**
      * @var PageFactory
      */
@@ -24,7 +23,7 @@ class Index extends \Magento\Backend\App\Action
         $this->resultPageFactory = $resultPageFactory;
     }
 
-     /**
+    /**
      * Index action
      *
      * @return \Magento\Backend\Model\View\Result\Page

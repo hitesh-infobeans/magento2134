@@ -20,7 +20,6 @@ class MassDisable extends \Magento\Backend\App\Action
      * @var CollectionFactory
      */
     protected $collectionFactory;
- 
     
     /**
      * @param Context $context

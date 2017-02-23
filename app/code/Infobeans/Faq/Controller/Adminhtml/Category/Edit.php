@@ -42,7 +42,6 @@ class Edit extends \Magento\Backend\App\Action
         return $this->_authorization->isAllowed('Infobeans_Faq::category');
     }
     
-    
     /**
      * Init actions
      *
@@ -50,7 +49,6 @@ class Edit extends \Magento\Backend\App\Action
      */
     protected function _initAction()
     {
-         
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Infobeans_Faq::category')
             ->addBreadcrumb(__('Category'), __('Category'))
@@ -64,10 +62,10 @@ class Edit extends \Magento\Backend\App\Action
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
      */
     public function execute()
-    { 
-         $id = $this->getRequest()->getParam('category_id');
+    {
+        $id = $this->getRequest()->getParam('category_id');
        
-       $model = $this->_objectManager->create('Infobeans\Faq\Model\Category');
+        $model = $this->_objectManager->create('Infobeans\Faq\Model\Category');
 
         if ($id) {
             $model->load($id);
@@ -88,14 +86,12 @@ class Edit extends \Magento\Backend\App\Action
         }
 
         $this->_coreRegistry->register('faq_category', $model);
-
         
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
             $id ? __('Edit Category') : __('New Category'),
             $id ? __('Edit Category') : __('New Category')
         );
-        
         
         $resultPage->getConfig()->getTitle()->prepend(__('Category'));
         

@@ -16,11 +16,10 @@ class MassEnable extends \Magento\Backend\App\Action
      */
     protected $filter;
 
-     /**
+    /**
      * @var CollectionFactory
      */
     protected $collectionFactory;
-
 
     /**
      * @param Context $context

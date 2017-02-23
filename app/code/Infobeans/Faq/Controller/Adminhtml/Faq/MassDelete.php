@@ -11,7 +11,7 @@ use Magento\Framework\Controller\ResultFactory;
  */
 class MassDelete extends \Magento\Backend\App\Action
 {
-     /**
+    /**
      * @var Filter
      */
     protected $filter;
@@ -20,7 +20,6 @@ class MassDelete extends \Magento\Backend\App\Action
      * @var CollectionFactory
      */
     protected $collectionFactory;
-
 
     /**
      * @param Context $context
