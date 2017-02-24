@@ -2,11 +2,25 @@
 namespace Infobeans\Faq\Controller\Adminhtml\Faq;
 
 use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
 use Magento\TestFramework\ErrorLog\Logger;
+use Infobeans\Faq\Model\FaqFactory;
 
 class Save extends \Magento\Backend\App\Action
-{
-
+{ 
+    private $faqFactory;
+    
+    public function __construct
+    (
+        Context $context,
+        FaqFactory $faqFactory
+    )
+    {
+        parent::__construct($context);
+       // $this->faqRepository=$faqRepository;
+        $this->faqFactory=$faqFactory;
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -27,19 +41,17 @@ class Save extends \Magento\Backend\App\Action
             
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $model = $this->_objectManager->create('Infobeans\Faq\Model\Faq');
-
-            $id = $this->getRequest()->getParam('faq_id');
-            if ($id) {
-                $model->load($id);
-            }
-
-            $model->setData($data);
-
-            $this->_eventManager->dispatch(
-                'faq_faq_prepare_save',
-                ['faq' => $model, 'request' => $this->getRequest()]
-            );
+            $faqId = $this->getRequest()->getParam('faq_id');
+            
+            $model = $this->faqFactory->create()->load($faqId);
+            
+            if ($faqId && $model->isObjectNew()) {
+                $this->messageManager->addError(__('This FAQ no longer exists.'));
+                $this->_redirect('adminhtml/*/');
+                return;
+            }  
+            
+            $model->setData($data);            
 
             try {
                 $model->save();

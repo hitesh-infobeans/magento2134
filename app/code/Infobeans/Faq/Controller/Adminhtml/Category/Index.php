@@ -9,7 +9,7 @@ class Index extends \Magento\Backend\App\Action
     /**
      * @var PageFactory
      */
-    protected $resultPageFactory;
+    private $resultPageFactory;
  
     /**
      * @param Context $context

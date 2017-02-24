@@ -3,9 +3,23 @@ namespace Infobeans\Faq\Controller\Adminhtml\Category;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
+use Infobeans\Faq\Model\CategoryFactory;
 
 class Save extends \Magento\Backend\App\Action
 {
+    private $categoryFactory;
+    
+    public function __construct
+    (
+        Action\Context $context,
+        CategoryFactory $categoryFactory
+    )
+    {
+        parent::__construct($context);
+       // $this->faqRepository=$faqRepository;
+        $this->categoryFactory=$categoryFactory;
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -25,12 +39,15 @@ class Save extends \Magento\Backend\App\Action
         
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $model = $this->_objectManager->create('Infobeans\Faq\Model\Category');
-
-            $id = $this->getRequest()->getParam('category_id');
-            if ($id) {
-                $model->load($id);
-            }
+            $categoryId = $this->getRequest()->getParam('category_id');
+            
+            $model = $this->categoryFactory->create()->load($categoryId);
+            
+            if ($categoryId && $model->isObjectNew()) {
+                $this->messageManager->addError(__('This Category no longer exists.'));
+                $this->_redirect('adminhtml/*/');
+                return;
+            }  
  
             $model->setData($data);
  

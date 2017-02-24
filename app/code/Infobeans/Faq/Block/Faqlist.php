@@ -151,7 +151,8 @@ class Faqlist extends \Magento\Framework\View\Element\Template implements
             $categoryCollection = $this->categoryCollectionFactory
                 ->create()
                 ->addFilter('main_table.is_active', 1)
-                ->setOrder('sort_order', 'asc');
+                ->setOrder('sort_order', 'asc')
+                ->setPageSize(1);
             $category=$categoryCollection->getFirstItem();
             $catId=$category->getId();
         }
