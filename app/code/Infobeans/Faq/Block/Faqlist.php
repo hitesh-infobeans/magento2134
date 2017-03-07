@@ -152,6 +152,7 @@ class Faqlist extends \Magento\Framework\View\Element\Template implements
                 ->create()
                 ->addFilter('main_table.is_active', 1)
                 ->setOrder('sort_order', 'asc')
+                ->addFaqCategoryJoin()    
                 ->setPageSize(1);
             $category=$categoryCollection->getFirstItem();
             $catId=$category->getId();

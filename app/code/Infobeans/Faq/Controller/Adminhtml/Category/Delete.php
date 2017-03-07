@@ -3,7 +3,6 @@ namespace Infobeans\Faq\Controller\Adminhtml\Category;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
-use Magento\Backend\App\Action\Context;
 use Infobeans\Faq\Api\CategoryRepositoryInterface;
 
 class Delete extends \Magento\Backend\App\Action
@@ -11,10 +10,9 @@ class Delete extends \Magento\Backend\App\Action
     private $categoryRepository;
     
     public function __construct(
-        Context $context,
+        Action\Context $context,
         CategoryRepositoryInterface $categoryRepository
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->categoryRepository=$categoryRepository;
     }
@@ -40,7 +38,7 @@ class Delete extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $this->categoryRepository->deleteById($id);      
+                $this->categoryRepository->deleteById($id);
                 $this->messageManager->addSuccess(__('The Category has been deleted.'));
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {

@@ -7,17 +7,12 @@ use Magento\TestFramework\ErrorLog\Logger;
 use Infobeans\Faq\Model\FaqFactory;
 
 class Save extends \Magento\Backend\App\Action
-{ 
+{
     private $faqFactory;
     
-    public function __construct
-    (
-        Context $context,
-        FaqFactory $faqFactory
-    )
+    public function __construct(Context $context, FaqFactory $faqFactory)
     {
         parent::__construct($context);
-       // $this->faqRepository=$faqRepository;
         $this->faqFactory=$faqFactory;
     }
     
@@ -49,14 +44,14 @@ class Save extends \Magento\Backend\App\Action
                 $this->messageManager->addError(__('This FAQ no longer exists.'));
                 $this->_redirect('adminhtml/*/');
                 return;
-            }  
+            }
             
-            $model->setData($data);            
+            $model->setData($data);
 
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved this FAQ.'));
-                $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
+                $this->_getSession()->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['faq_id' => $model->getId(), '_current' => true]);
                 }

@@ -44,10 +44,8 @@ class MassDisable extends \Magento\Backend\App\Action
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
 
-        foreach ($collection as $item) {
-            $item->setIsActive(false);
-            $item->save();
-        }
+        $collection->walk('set_is_active', [false]);
+        $collection->walk('save');
 
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been disabled.', $collection->getSize()));
 

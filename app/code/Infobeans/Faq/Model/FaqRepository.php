@@ -9,7 +9,8 @@ namespace Infobeans\Faq\Model;
 
 use Infobeans\Faq\Api\FaqRepositoryInterface;
 use Infobeans\Faq\Model\FaqFactory;
- 
+use Magento\Framework\Exception\NoSuchEntityException;
+
 class FaqRepository implements FaqRepositoryInterface
 {
     private $faqFactory;
@@ -18,22 +19,20 @@ class FaqRepository implements FaqRepositoryInterface
     public function __construct(
         \Infobeans\Faq\Model\ResourceModel\Faq $faqResource,
         FaqFactory $faqFactory
-    )
-    {
+    ) {
         $this->faqResource = $faqResource;
-        $this->faqFactory = $faqFactory;       
-    } 
+        $this->faqFactory = $faqFactory;
+    }
     
     public function get($faqId)
     {
         $faq = $this->faqFactory->create();
         $this->faqResource->load($faq, $faqId);
-        if(!$faq->getId()) {
+        if (!$faq->getId()) {
             throw new NoSuchEntityException('Faq does not exist');
         }
-        return $faq;        
+        return $faq;
     }
-    
     
     public function save(\Infobeans\Faq\Api\Data\FaqInterface $faq)
     {
@@ -46,7 +45,7 @@ class FaqRepository implements FaqRepositoryInterface
         $faq = $this->faqFactory->create();
         $faq->setId($faqId);
         
-        if ( $this->faqResource->delete($faq)) {
+        if ($this->faqResource->delete($faq)) {
             return true;
         } else {
             return false;

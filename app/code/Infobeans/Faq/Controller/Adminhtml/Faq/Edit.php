@@ -2,6 +2,7 @@
 namespace Infobeans\Faq\Controller\Adminhtml\Faq;
 
 use Magento\Backend\App\Action;
+use Infobeans\Faq\Model\FaqFactory;
 
 class Edit extends \Magento\Backend\App\Action
 {
@@ -16,6 +17,8 @@ class Edit extends \Magento\Backend\App\Action
      * @var \Magento\Framework\View\Result\PageFactory
      */
     protected $resultPageFactory;
+    
+    private $faqFactory;
 
     /**
      * @param Action\Context $context
@@ -25,10 +28,12 @@ class Edit extends \Magento\Backend\App\Action
     public function __construct(
         Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        FaqFactory $faqFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
+        $this->faqFactory = $faqFactory;
         parent::__construct($context);
     }
 
@@ -64,13 +69,12 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('faq_id');
-        $model = $this->_objectManager->create('Infobeans\Faq\Model\Faq');
-
-        if ($id) {
-            $model->load($id);
+        $faqId = $this->getRequest()->getParam('faq_id');
+        if ($faqId) {
+            $model = $this->faqFactory->create()->load($faqId);
+           
             if (!$model->getId()) {
-                $this->messageManager->addError(__('This post no longer exists.'));
+                $this->messageManager->addError(__('This FAQ no longer exists.'));
                  
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -78,7 +82,8 @@ class Edit extends \Magento\Backend\App\Action
             }
         }
 
-        $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getFormData(true);
+        $data = $this->_getSession()->getFormData(true);
+        
         if (!empty($data)) {
             $model->setData($data);
         }
@@ -87,13 +92,15 @@ class Edit extends \Magento\Backend\App\Action
         
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit FAQ') : __('New FAQ'),
-            $id ? __('Edit FAQ') : __('New FAQ')
+            $categoryId ? __('Edit FAQ') : __('New FAQ'),
+            $categoryId ? __('Edit FAQ') : __('New FAQ')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('FAQs'));
+        
+        $resultPage->getConfig()->getTitle()->prepend(__('FAQ'));
+        
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('New FAQ'));
-
+            ->prepend($model->getId() ? $model->getCategoryName() : __('New FAQ'));
+         
         return $resultPage;
     }
 }

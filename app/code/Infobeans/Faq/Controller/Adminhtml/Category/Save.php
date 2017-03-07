@@ -9,14 +9,9 @@ class Save extends \Magento\Backend\App\Action
 {
     private $categoryFactory;
     
-    public function __construct
-    (
-        Action\Context $context,
-        CategoryFactory $categoryFactory
-    )
+    public function __construct(Action\Context $context, CategoryFactory $categoryFactory)
     {
         parent::__construct($context);
-       // $this->faqRepository=$faqRepository;
         $this->categoryFactory=$categoryFactory;
     }
     
@@ -47,8 +42,8 @@ class Save extends \Magento\Backend\App\Action
                 $this->messageManager->addError(__('This Category no longer exists.'));
                 $this->_redirect('adminhtml/*/');
                 return;
-            }  
- 
+            }
+            
             $model->setData($data);
  
             $this->_eventManager->dispatch(
@@ -59,7 +54,7 @@ class Save extends \Magento\Backend\App\Action
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved this Category.'));
-                $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
+                $this->_getSession()->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['category_id' => $model->getId(), '_current' => true]);
                 }
@@ -73,7 +68,10 @@ class Save extends \Magento\Backend\App\Action
             }
 
             $this->_getSession()->setFormData($data);
-            return $resultRedirect->setPath('*/*/edit', ['category_id' => $this->getRequest()->getParam('category_id')]);
+            return $resultRedirect->setPath(
+                '*/*/edit',
+                ['category_id' => $this->getRequest()->getParam('category_id')]
+            );
         }
         return $resultRedirect->setPath('*/*/');
     }

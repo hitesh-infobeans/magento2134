@@ -2,6 +2,7 @@
 namespace Infobeans\Faq\Controller\Adminhtml\Category;
 
 use Magento\Backend\App\Action;
+use Infobeans\Faq\Model\CategoryFactory;
 
 class Edit extends \Magento\Backend\App\Action
 {
@@ -16,6 +17,8 @@ class Edit extends \Magento\Backend\App\Action
      * @var \Magento\Framework\View\Result\PageFactory
      */
     protected $resultPageFactory;
+    
+    private $categoryFactory;
 
     /**
      * @param Action\Context $context
@@ -25,10 +28,12 @@ class Edit extends \Magento\Backend\App\Action
     public function __construct(
         Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        CategoryFactory $categoryFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
+        $this->categoryFactory = $categoryFactory;
         parent::__construct($context);
     }
 
@@ -63,13 +68,10 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id = $this->getRequest()->getParam('category_id');
-       
-        $model = $this->_objectManager->create('Infobeans\Faq\Model\Category');
-
-        if ($id) {
-            $model->load($id);
-            
+        $categoryId = $this->getRequest()->getParam('category_id');
+        if ($categoryId) {
+            $model = $this->categoryFactory->create()->load($categoryId);
+           
             if (!$model->getId()) {
                 $this->messageManager->addError(__('This Category no longer exists.'));
                  
@@ -79,7 +81,7 @@ class Edit extends \Magento\Backend\App\Action
             }
         }
 
-        $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getFormData(true);
+        $data = $this->_getSession()->getFormData(true);
         
         if (!empty($data)) {
             $model->setData($data);
@@ -89,8 +91,8 @@ class Edit extends \Magento\Backend\App\Action
         
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Category') : __('New Category'),
-            $id ? __('Edit Category') : __('New Category')
+            $categoryId ? __('Edit Category') : __('New Category'),
+            $categoryId ? __('Edit Category') : __('New Category')
         );
         
         $resultPage->getConfig()->getTitle()->prepend(__('Category'));

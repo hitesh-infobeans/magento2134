@@ -33,8 +33,9 @@ class Category extends \Magento\Framework\View\Element\Template
             $categoryCollection = $this->categoryCollectionFactory
                 ->create()
                 ->addFilter('main_table.is_active', 1)
+                ->addFaqCategoryFilter()
                 ->setOrder('sort_order', 'asc');
-             
+            
             $this->setData($k, $categoryCollection);
         }
         return $this->getData($k);

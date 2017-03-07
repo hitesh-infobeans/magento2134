@@ -10,7 +10,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @var \Magento\Store\Model\System\Store
      */
-    protected $_systemStore;
+    protected $systemStore;
 
     /**
      * @param \Magento\Backend\Block\Template\Context $context
@@ -27,7 +27,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Store\Model\System\Store $systemStore,
         array $data = []
     ) {
-        $this->_systemStore = $systemStore;
+        $this->systemStore = $systemStore;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 

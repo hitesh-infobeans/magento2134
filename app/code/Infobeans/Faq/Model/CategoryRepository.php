@@ -9,7 +9,8 @@ namespace Infobeans\Faq\Model;
 
 use Infobeans\Faq\Api\CategoryRepositoryInterface;
 use Infobeans\Faq\Model\CategoryFactory;
- 
+use Magento\Framework\Exception\NoSuchEntityException;
+
 class CategoryRepository implements CategoryRepositoryInterface
 {
     private $categoryFactory;
@@ -18,8 +19,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function __construct(
         \Infobeans\Faq\Model\ResourceModel\Category $categoryResource,
         CategoryFactory $categoryFactory
-    )
-    {
+    ) {
         $this->categoryResource = $categoryResource;
         $this->categoryFactory = $categoryFactory;
     }
@@ -28,11 +28,11 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         $category = $this->categoryFactory->create();
         $this->categoryResource->load($category, $categoryId);
-        if(!$category->getId()) {
+        if (!$category->getId()) {
             throw new NoSuchEntityException('Category does not exist');
         }
-        return $category;        
-    }    
+        return $category;
+    }
     
     public function save(\Infobeans\Faq\Api\Data\CategoryInterface $category)
     {
