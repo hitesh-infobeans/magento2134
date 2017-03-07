@@ -1,0 +1,77 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+ @border:1px solid;
+
+.faq-list{
+    font-weight: normal;      
+    
+    .ui-state-default{
+        background: #f6f6f6 none repeat scroll 0 0;
+        border:@border #c5c5c5;
+        color: #454545;
+        cursor:pointer;         
+    }
+    
+    .ui-state-active  {
+        background: #514943 none repeat scroll 0 0;
+        border:@border #8a837f;
+        color: #ffffff;
+        cursor:pointer;
+        
+    }
+    
+    h3 {
+        font-size: 15px;
+        line-height: normal;
+        margin-bottom:0px;
+        margin-top: 0px;
+        padding: 5px;
+        color: #ffffff;
+        background:#514943 none repeat scroll 0 0; 
+
+    }
+
+    
+} 
+ 
+
+.faq-category{
+    li { 
+        border: @border #ccc;
+        height: 24px;
+        list-style: outside none none;
+        padding: 6px; 
+        
+    }
+    
+    li:hover, li.active{
+        background: #eee none repeat scroll 0 0;
+    }
+    
+    li.active a{
+        color:#000;
+    }
+}
+ 
+.pager{
+    .current{
+        background:#ccc; 
+    }  
+} 
+
+.faq-item-content{
+    padding:15px !important
+}
+
+.disableClick{
+    pointer-events: none;
+}
+
+.faq-toolbar{
+    padding:20px;
+    text-align: center;
+}

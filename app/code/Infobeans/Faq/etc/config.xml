@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+        <default>
+            <faq_section>
+                <general>
+                    <page_title>FAQ</page_title>
+                    <meta_title>Frequently asked questions</meta_title>
+                    <meta_keyword>FAQ</meta_keyword>
+                    <meta_description>Frequently asked questions</meta_description>
+                    <record_per_page>10</record_per_page>
+                </general>
+            </faq_section>
+        </default>
+    </config>

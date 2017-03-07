@@ -1,0 +1,39 @@
+<?php
+/**
+ * FAQ Pager template
+ *
+ * @see \Magento\Theme\Block\Html\Pager
+ */
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <?php if ($block->getUseContainer()): ?>
+    <div class="pager">
+    <?php endif ?> 
+        <?php if ($block->getLastPageNum()>1): ?>
+        <div class="pages">
+            <strong class="label pages-label" id="paging-label"><?php echo __('Page') ?></strong>
+            <ul class="items pages-items" aria-labelledby="paging-label"> 
+            <?php foreach ($block->getFramePages() as $_page): ?>
+                <?php if ($block->isPageCurrent($_page)): ?>
+                    <li class="item current page<?php echo $_page?>">
+                        <a href="javascript:;" onclick="fetchFaq(document.getElementById('current-category').value,'<?php echo $_page?>')" class="page">
+                            <span class="label"><?php echo __('Page') ?></span>
+                            <span><?php echo $_page ?></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="item page<?php echo $_page?>">
+                        <a href="javascript:;" onclick="fetchFaq(document.getElementById('current-category').value,'<?php echo $_page?>')" class="page">
+                            <span class="label"><?php echo __('Page') ?></span>
+                            <span><?php echo $_page ?></span>
+                        </a>
+                    </li>
+                <?php endif;?>
+            <?php endforeach;?> 
+            </ul>
+        </div>
+        <?php endif; ?> 
+    <?php if ($block->getUseContainer()): ?>
+    </div>
+    <?php endif ?>
+<?php endif ?>

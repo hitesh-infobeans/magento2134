@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head> 
+       <script src="Infobeans_Faq::js/faq.js"   />
+    </head>
+    <body>
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Home</item>
+                    <item name="label" xsi:type="string">Home</item>
+                    <item name="link" xsi:type="string">/</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">FAQ</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">FAQ</item>
+                    <item name="label" xsi:type="string">FAQ</item>
+                </argument>
+            </action>
+        </referenceBlock> 
+        
+         <referenceContainer name="sidebar.additional"> 
+            <block class="Infobeans\Faq\Block\Sidebar\Category" name="sidebar.category" template="sidebar/category.phtml" /> 
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+        </referenceContainer>
+       
+        <referenceContainer name="content">
+            <block class="Infobeans\Faq\Block\Faqlist" name="faq.list" template="Infobeans_Faq::list.phtml" />
+        </referenceContainer>
+    </body>
+</page>
