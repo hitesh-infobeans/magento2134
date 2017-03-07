@@ -57,7 +57,10 @@ class CategoryActions extends Column
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::CATEGORY_URL_PATH_DELETE, ['category_id' => $item['category_id']]),
+                        'href' => $this->urlBuilder->getUrl(
+                            self::CATEGORY_URL_PATH_DELETE,
+                            ['category_id' => $item['category_id']]
+                        ),
                         'label' => __('Delete'),
                         'confirm' => [
                             'title' => __('Delete "${ $.$data.title }"'),

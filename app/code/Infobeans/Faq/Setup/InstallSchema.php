@@ -36,8 +36,20 @@ class InstallSchema implements InstallSchemaInterface
                         'Category ID'
                     )
                     ->addColumn('category_name', Table::TYPE_TEXT, 255, ['nullable' => false], 'FAQ Category Name')
-                    ->addColumn('sort_order', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '0'], 'Sort Order')
-                    ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is FAQ Active?')
+                    ->addColumn(
+                        'sort_order',
+                        Table::TYPE_SMALLINT,
+                        null,
+                        ['nullable' => false, 'default' => '0'],
+                        'Sort Order'
+                    )
+                    ->addColumn(
+                        'is_active',
+                        Table::TYPE_SMALLINT,
+                        null,
+                        ['nullable' => false, 'default' => '1'],
+                        'Is FAQ Active?'
+                    )
                     ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
                     ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')
                     ->setComment('Infobeans FAQ Category');
@@ -59,7 +71,13 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'FAQ Question')
             ->addColumn('content', Table::TYPE_TEXT, '2M', [], 'FAQ Answer')
             ->addColumn('category_id', Table::TYPE_SMALLINT, null, ['nullable' => false], 'Category Id')
-            ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is FAQ Active?')
+            ->addColumn(
+                'is_active',
+                Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => false, 'default' => '1'],
+                'Is FAQ Active?'
+            )
             ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
             ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')
             ->setComment('Infobeans FAQ')

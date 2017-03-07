@@ -72,7 +72,10 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     {
          
         if ($this->_coreRegistry->registry('category')->getId()) {
-            return __("Edit Category '%1'", $this->escapeHtml($this->_coreRegistry->registry('category')->getCategoryName()));
+            return __(
+                "Edit Category '%1'",
+                $this->escapeHtml($this->_coreRegistry->registry('category')->getCategoryName())
+            );
         } else {
             return __('New Category');
         }

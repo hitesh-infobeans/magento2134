@@ -8,10 +8,10 @@
 namespace Infobeans\Faq\Api;
 
 interface CategoryRepositoryInterface
-{ 
+{
     public function get($categoryId);
     
     public function save(\Infobeans\Faq\Api\Data\CategoryInterface $category);
     
-    public function deleteById($categoryId);    
+    public function deleteById($categoryId);
 }

@@ -72,7 +72,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $fieldset->addField(
             'category_name',
             'text',
-            ['name' => 'category_name', 'label' => __('Category Name'), 'title' => __('Category Name'), 'required' => true]
+            [
+            'name' => 'category_name',
+            'label' => __('Category Name'),
+            'title' => __('Category Name'),
+            'required' => true
+            ]
         );
         
         $fieldset->addField(
@@ -94,7 +99,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $fieldset->addField(
             'sort_order',
             'text',
-            ['name' => 'sort_order', 'label' => __('Sort Order'), 'title' => __('Sort Order'), 'required' => true,'class'=>'validate-digits']
+            [
+            'name' => 'sort_order',
+            'label' => __('Sort Order'),
+            'title' => __('Sort Order'),
+            'required' => true,
+            'class'=>'validate-digits'
+            ]
         );
 
         $form->setValues($model->getData());

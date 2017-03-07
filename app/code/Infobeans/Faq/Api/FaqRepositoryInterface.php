@@ -8,7 +8,7 @@
 namespace Infobeans\Faq\Api;
 
 interface FaqRepositoryInterface
-{    
+{
     public function get($faqId);
     
     public function save(\Infobeans\Faq\Api\Data\FaqInterface $faq);
